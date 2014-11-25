@@ -40,6 +40,9 @@ public class UserBuild {
 
     public static String TYPE = "@DataType(%s)%sString ";
 
+    /**
+     * 指定数据类型
+     */
     public String dataType;
 
     private String getStart(String name, String parentName) {
@@ -106,6 +109,13 @@ public class UserBuild {
 
     }
 
+    /**
+     * 根据list生成指定的类，按照顺序生成
+     * @param name
+     * @param parentName
+     * @param mLists
+     * @return
+     */
     public String getInterface(String name, String parentName, List<BaseList> mLists){
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(getStart(name, parentName));

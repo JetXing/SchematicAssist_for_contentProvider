@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Created by xingguangyao on 14/11/25.
+ * 生成可重复key的Map
  */
 public class RepetitionHashMap extends HashMap<String, String> {
 
