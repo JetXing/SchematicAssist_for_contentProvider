@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by xingguangyao on 14/11/24.
  */
-public class UserBuild {
+public class ColumnBuild {
 
     public static final String INTEGER = "INTEGER";
 
@@ -45,11 +45,11 @@ public class UserBuild {
      */
     public String dataType;
 
-    private String getStart(String name, String parentName) {
+    private String getStart(String interfaceName, String parentName) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(PUBLIC).append(TEMP).append(INTERFACE).append(TEMP)
-                .append(name).append(TEMP).append(EXTENDS).append(TEMP).append(parentName)
-                .append(TEMP).append(START).append(NEWLINE);
+                .append(interfaceName).append(TEMP).append(EXTENDS).append(TEMP).append(parentName)
+                .append(TEMP).append(START).append(NEWLINE).append(NEWLINE);
         return stringBuilder.toString();
     }
 
@@ -78,19 +78,19 @@ public class UserBuild {
         this.dataType = String.format(TYPE, dataType, NEWLINE);
     }
 
-    public UserBuild() {
+    public ColumnBuild() {
     }
 
     /**
      * 根据map生成指定的类，但是不是按照指定的顺序生成，因为map是无序的
-     * @param name
+     * @param interfaceName 类名或接口名
      * @param parentName
      * @param map
      * @return
      */
-    public String getInterface(String name, String parentName,Map<String, String> map){
+    public String getInterface(String interfaceName, String parentName,Map<String, String> map){
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getStart(name, parentName));
+        stringBuilder.append(getStart(interfaceName, parentName));
 
         for (Map.Entry<String, String> entry : map.entrySet()){
             if (entry.getKey().contains(BLOB)){
@@ -111,14 +111,14 @@ public class UserBuild {
 
     /**
      * 根据list生成指定的类，按照顺序生成
-     * @param name
+     * @param interfaceName
      * @param parentName
      * @param mLists
      * @return
      */
-    public String getInterface(String name, String parentName, List<BaseList> mLists){
+    public String getInterface(String interfaceName, String parentName, List<BaseList> mLists){
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getStart(name, parentName));
+        stringBuilder.append(getStart(interfaceName, parentName));
         for (BaseList mBaseList : mLists){
             setDataType(mBaseList.getType());
             for (String string : mBaseList.getmList()){

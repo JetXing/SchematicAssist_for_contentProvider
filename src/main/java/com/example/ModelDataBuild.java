@@ -39,10 +39,10 @@ public class ModelDataBuild {
      */
     public String dataType;
 
-    private String getStart(String name) {
+    private String getStart(String className) {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(PUBLIC).append(TEMP).append(CLASS).append(TEMP)
-                .append(name).append(TEMP).append(START).append(NEWLINE);
+                .append(className).append(TEMP).append(START).append(NEWLINE).append(NEWLINE);
         return stringBuilder.toString();
     }
 
@@ -78,7 +78,7 @@ public class ModelDataBuild {
             if (i == 0){
                 mStringBuffer.append(strings[i]);
             } else {
-                strings[i].replace(strings[i].substring(0, 1), strings[i].substring(0,1).toUpperCase());
+                strings[i] = strings[i].replace(strings[i].substring(0, 1), strings[i].substring(0,1).toUpperCase());
                 mStringBuffer.append(strings[i]);
 
             }
@@ -96,13 +96,13 @@ public class ModelDataBuild {
 
     /**
      * 根据map生成指定的类，但是不是按照指定的顺序生成，因为map是无序的
-     * @param name
+     * @param className
      * @param map
      * @return
      */
-    public String getInterface(String name, Map<String, String> map){
+    public String getInterface(String className, Map<String, String> map){
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(getStart(name));
+        stringBuilder.append(getStart(className));
 
         for (Map.Entry<String, String> entry : map.entrySet()){
             if (entry.getKey().contains(BLOB)){
