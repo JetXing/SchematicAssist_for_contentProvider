@@ -1,4 +1,6 @@
-package com.example;
+package com.example.column;
+
+import com.example.base.BaseList;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,7 @@
-package com.example;
+package com.example.base;
+
+import com.example.column.ColumnUtils;
+import com.example.model.ModelDataUtils;
 
 /**
  * Created by xingguangyao on 14/11/30.

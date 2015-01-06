@@ -1,4 +1,7 @@
-package com.example;
+package com.example.model;
+
+import com.example.base.BaseList;
+import com.example.base.BaseUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +10,7 @@ import java.util.List;
  * Created by xingguangyao on 14/11/26.
  * 生成json解析的标准类
  */
-public class ModelDataUtils implements BaseUtils{
+public class ModelDataUtils implements BaseUtils {
 
     /**
      * 主要更改类
